@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const Navbar = ({ links = [] }) => {
+const Navbar = ({ links = [], cartCount = 0, onOpenCart = () => {} }) => {
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/75 backdrop-blur-lg">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -27,6 +27,16 @@ const Navbar = ({ links = [] }) => {
               {link.label}
             </NavLink>
           ))}
+          <button
+            type="button"
+            onClick={onOpenCart}
+            className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+          >
+            Carro
+            <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-semibold">
+              {cartCount}
+            </span>
+          </button>
         </div>
       </div>
     </nav>

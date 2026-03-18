@@ -1,4 +1,4 @@
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onAddToCart = () => {} }) => {
   if (!movie) return null;
 
   return (
@@ -12,6 +12,7 @@ const MovieCard = ({ movie }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-900/25 to-transparent" />
         <button
           type="button"
+          onClick={() => onAddToCart(movie)}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/90 px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg backdrop-blur transition hover:bg-white"
         >
           Agregar al carro

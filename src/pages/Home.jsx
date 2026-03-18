@@ -1,7 +1,10 @@
+import { useOutletContext } from "react-router-dom";
 import MovieCard from "../components/featureMovies/MovieCard";
 import { MOVIES } from "../data/movies";
 
 export default function Home() {
+  const { addToCart } = useOutletContext();
+
   return (
     <section className="mx-auto w-full max-w-6xl space-y-8">
       <div className="space-y-2">
@@ -18,7 +21,7 @@ export default function Home() {
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {MOVIES.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} onAddToCart={addToCart} />
         ))}
       </div>
     </section>
